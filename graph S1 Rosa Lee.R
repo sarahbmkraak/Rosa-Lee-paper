@@ -18,7 +18,7 @@ library(mvtnorm)
 
 ##working directory Sarah
 setwd("C:/Users/kraak/Dropbox/Master Thesis/R_rosalee")
-source("C:/Users/kraak/Dropbox/Master Thesis/R_rosalee/get_det_growth_mat_betamon_cod_20190108.R")
+source("C:/Users/kraak/Dropbox/Master Thesis/R_rosalee/get_det_growth_mat_betamon_cod_20190507.R")
 source("C:/Users/kraak/Dropbox/Master Thesis/R_rosalee/get_survivorship_mat_cod_Sarah.R")
 source("C:/Users/kraak/Dropbox/Master Thesis/R_rosalee/get_catch_mat_cod_Sarah.R")
 source("C:/Users/kraak/Dropbox/Master Thesis/R_rosalee/get_length_dist_age_betamon_cod_Sarah_revision.R")
@@ -89,7 +89,7 @@ M.age<-c(0.242,rep(0.2,n.ages-1))
 
 ## length-class break-points
 ## with many length classes we set by=1, else by=0.5
-l.breaks<-seq(2,100, by=10)
+l.breaks<-seq(1,100, by=10)
 
 ## get length class mid-points
 get.mids<-function(x){
@@ -153,22 +153,22 @@ age<-2
 
 ageplus <- age + 1
 ages<-c(age,ageplus)
-l.mat <- round(sapply(101:200, FUN = function(z){linf.k.mat[z, 1] * (1 - exp(-linf.k.mat[z, 2] * (ages - t0)))}),0)
+l.mat <- sapply(101:200, FUN = function(z){linf.k.mat[z, 1] * (1 - exp(-linf.k.mat[z, 2] * (ages - t0)))})
 
-plot(l.mat[1,],(l.mat[2,]-l.mat[1,]),xlim=c(0,120),ylim=c(0,25),xaxt="n", yaxt="n", ann=F)
+plot(l.mat[1,],(l.mat[2,]-l.mat[1,]),xlim=c(0,120),ylim=c(0,25),xaxt="n", yaxt="n", ann=F, pch=20, cex=0.5)
 abline(v=seq(0,120,by=20), col="grey")
 abline(h=seq(0,25,by=5), col="grey")
-axis(side=2, at=seq(0,25,by=5), font=1,cex.axis=1)
-mtext(side=2,line=1.5, outer = TRUE, "length increment (cm)")
+axis(side=2, at=seq(0,25,by=5), font=1,cex.axis=1, las=1)
+mtext(side=2,line=1.5, outer = TRUE, "Length increment (cm)")
 mtext('age = 2', side = 3, line = -1.2, adj = 0.05, cex = 1, col = "black")
 
 age<-3
 
 ageplus <- age + 1
 ages<-c(age,ageplus)
-l.mat <- round(sapply(101:200, FUN = function(z){linf.k.mat[z, 1] * (1 - exp(-linf.k.mat[z, 2] * (ages - t0)))}),0)
+l.mat <- sapply(101:200, FUN = function(z){linf.k.mat[z, 1] * (1 - exp(-linf.k.mat[z, 2] * (ages - t0)))})
 
-plot(l.mat[1,],(l.mat[2,]-l.mat[1,]),xlim=c(0,120),ylim=c(0,25),xaxt="n", yaxt="n", ann=F)
+plot(l.mat[1,],(l.mat[2,]-l.mat[1,]),xlim=c(0,120),ylim=c(0,25),xaxt="n", yaxt="n", ann=F, pch=20, cex=0.5)
 abline(v=seq(0,120,by=20), col="grey")
 abline(h=seq(0,25,by=5), col="grey")
 mtext('age = 3', side = 3, line = -1.2, adj = 0.05, cex = 1, col = "black")
@@ -177,27 +177,27 @@ age<-4
 
 ageplus <- age + 1
 ages<-c(age,ageplus)
-l.mat <- round(sapply(101:200, FUN = function(z){linf.k.mat[z, 1] * (1 - exp(-linf.k.mat[z, 2] * (ages - t0)))}),0)
+l.mat <- sapply(101:200, FUN = function(z){linf.k.mat[z, 1] * (1 - exp(-linf.k.mat[z, 2] * (ages - t0)))})
 
-plot(l.mat[1,],(l.mat[2,]-l.mat[1,]),xlim=c(0,120),ylim=c(0,25),xaxt="n", yaxt="n", ann=F)
+plot(l.mat[1,],(l.mat[2,]-l.mat[1,]),xlim=c(0,120),ylim=c(0,25),xaxt="n", yaxt="n", ann=F, pch=20, cex=0.5)
 abline(v=seq(0,120,by=20), col="grey")
 abline(h=seq(0,25,by=5), col="grey")
-axis(side=2, at=seq(0,25,by=5), font=1,cex.axis=1)
+axis(side=2, at=seq(0,25,by=5), font=1,cex.axis=1, las=1)
 axis(side=1, at=seq(0,120,by=20), font=1,cex.axis=1)
 mtext('age = 4', side = 3, line = -1.2, adj = 0.05, cex = 1, col = "black")
-mtext(side=1, line=1.5, outer = TRUE, "length at age (cm)")
+mtext(side=1, line=1.5, outer = TRUE, "Length at age (cm)")
 
 age<-5
 
 ageplus <- age + 1
 ages<-c(age,ageplus)
-l.mat <- round(sapply(101:200, FUN = function(z){linf.k.mat[z, 1] * (1 - exp(-linf.k.mat[z, 2] * (ages - t0)))}),0)
+l.mat <- sapply(101:200, FUN = function(z){linf.k.mat[z, 1] * (1 - exp(-linf.k.mat[z, 2] * (ages - t0)))})
 
-plot(l.mat[1,],(l.mat[2,]-l.mat[1,]),xlim=c(0,120),ylim=c(0,25),xaxt="n", yaxt="n", ann=F)
+plot(l.mat[1,],(l.mat[2,]-l.mat[1,]),xlim=c(0,120),ylim=c(0,25),xaxt="n", yaxt="n", ann=F, pch=20, cex=0.5)
 abline(v=seq(0,120,by=20), col="grey")
 abline(h=seq(0,25,by=5), col="grey")
 axis(side=1, at=seq(0,120,by=20), font=1,cex.axis=1)
 mtext('age = 5', side = 3, line = -1.2, adj = 0.05, cex = 1, col = "black")
-mtext(side=1, line=1.5, outer = TRUE, "length at age (cm)")
+mtext(side=1, line=1.5, outer = TRUE, "Length at age (cm)")
 
 dev.off()
